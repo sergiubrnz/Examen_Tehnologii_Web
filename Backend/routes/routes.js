@@ -148,7 +148,7 @@ router
 
     .get('/spacecraft/:spacecraftId/astronauts/:astronautId', async (req, res) => {
         try {
-            const spacecraft = await Spacecraft.findByPk(req.params.shelfId);
+            const spacecraft = await Spacecraft.findByPk(req.params.spacecraftId);
             if (spacecraft) {
                 const astronauts = await spacecraft.getAstronau({ where: { id: req.params.astronautId } });
                 const astronaut = astronauts.shift();

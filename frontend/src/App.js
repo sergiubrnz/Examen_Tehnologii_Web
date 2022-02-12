@@ -1,24 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import Container from './layout/Container';
+import { Routes, Route, Navigate } from 'react-router-dom';
+import SpacecraftsTable from './pages/Spacecrafts';
+import AstronautsTable from './pages/Astronauts';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Container>
+      <Routes>
+        <Route path='/spacecrafts' element={<SpacecraftsTable/>}/>
+        <Route path='/astronauts' element={<AstronautsTable/>}/>
+        <Route path='/*' element={<SpacecraftsTable/>}/>
+      </Routes>
+    </Container>
   );
 }
 
